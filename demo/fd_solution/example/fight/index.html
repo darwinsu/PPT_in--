@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>一个示例</title>
+    <link rel="stylesheet" type="text/css" href="../../public/theme/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../public/theme/app/fight.css"/>
+</head>
+<body>
+    <div class="header">
+        <h2>姓名大作战</h2>
+    </div>
+    <div class="main">
+        <div class="input-c clearfix">
+            <div class="attack input-item">
+                <input type="text" class="input-small" id="attack" placeholder="攻"/>
+            </div>
+            <div class="input-item"><input type="button" id="fight" value="fight" class="btn btn-success"/></div>
+            <div class="defence input-item">
+                <input type="text" class="input-small" id="defence" placeholder="受"/>
+            </div>
+        </div>
+
+        <div class="blood hide" id="bloodBar">
+            <div class="attack">
+                <em>攻：</em>
+                <span class="attack-name">习近平</span>
+                <span class="blood-len"></span>
+                <div class="progress progress-danger">
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <div class="defence">
+                <em>受：</em>
+                <span class="defence-name">薄熙来</span>
+                <span class="blood-len"></span>
+                <div class="progress progress-danger">
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="box"></div>
+    </div>
+    <script src="../../public/js/seajs/sea.js"></script>
+    <script src="../../public/js/config.js"></script>
+    <script>
+        seajs.use('../../public/js/dist/app/fight/index');
+    </script>
+</body>
+</html>

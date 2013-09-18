@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>控制器</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <style>
+        input {
+            width: 100px;
+            height: 200px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="prev" id="prev"/>
+<input type="button" value="next" id="next"/>
+<div>总共 <span id="total"></span>页</div>
+<div>当前<span id="result">1</span>页</div>
+<script src="./js/jquery-1.9.1.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io.connect('http://192.168.57.103:9999');
+    socket.on('result', function(data) {
+        $('#result').text(data.page);
+    });
+    socket.emit('status');
+    socket.on('status', function(data) {
+        $('#total').text(data.total);
+        $('#result').text(data.current);
+    });
+    $(function() {
+        $('#prev').click(function() {
+            socket.emit('prev');
+        });
+        $('#next').click(function() {
+            socket.emit('next');
+        });
+    });
+</script>
+</body>
+</html>

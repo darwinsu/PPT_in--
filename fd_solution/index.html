@@ -1,0 +1,310 @@
+<!--
+Google IO 2012 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google IO 2012</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <!--This one seems to work all the time, but really small on ipad-->
+    <!--<meta name="viewport" content="initial-scale=0.4">-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" media="all" href="theme/css/default.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+    <base target="_blank">
+    <!-- This amazingness opens all links in a new tab. -->
+    <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+<slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+        <h1 data-config-title><!-- populated from slide_config.json --></h1>
+
+        <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+
+        <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+</slide>
+
+<slide class="fill nobackground white" style="background-image: url(images/kj.jpg)">
+    <hgroup>
+        <h2>前端困境</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <li>模块化</li>
+            <li>调试</li>
+            <li>部署</li>
+            <li>线上</li>
+            <li>协作开发</li>
+            <li>后期维护</li>
+        </ul>
+    </article>
+</slide>
+
+<slide class="fill nobackground black" style="background-image: url(images/yd.jpg)">
+    <hgroup>
+        <h2>没有银弹</h2>
+        <h3>没有任何一项技术或方法可以能让软件工程的生产力在十年内提高十倍</h3>
+    </hgroup>
+    <article>
+        <p>解决方案？</p>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>名词汇总</h2>
+    </hgroup>
+    <article>
+        <p>
+            <a href="http://nodejs.org/">nodeJS</a> /
+            <a href="https://npmjs.org/">npm</a></p>
+        <p>
+            <a href="http://seajs.org">seaJS</a> /
+            <a href="https://spmjs.org/">spm</a> /
+            <a href="http://requirejs.org/">RequireJS</a>
+            <a href="https://github.com/seajs/seajs/issues/242">CMD</a> /
+            <a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a>
+        </p>
+        <p>
+            <a href="http://gruntjs.com/">Grunt</a> /
+            <a href="https://github.com/gruntjs/grunt-contrib-uglify">uglify</a> /
+            <a href="https://github.com/spmjs/grunt-cmd-transport">transport</a> /
+            <a href="https://github.com/spmjs/grunt-cmd-concat">concat</a> /
+            <a href="https://github.com/gruntjs/grunt-contrib-jshint">jshint</a> /
+            <a href="https://github.com/gruntjs/grunt-contrib-watch">watch</a> /
+            <a href="https://github.com/gruntjs/grunt-contrib-copy">copy</a> /
+            <a href="https://github.com/gruntjs/grunt-contrib-qunit">qunit</a>
+        </p>
+        <p>
+            firebug / chrome控制台
+            <a href="http://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html">sourceMap</a> /
+            <a href="http://fiddler2.com/">fiddler</a> /
+            <a href="https://github.com/AlloyTeam/Rythem">Rythem</a>
+        </p>
+        <p>
+            <a href="http://qunitjs.com/">Qunit</a> /
+            <a href="http://phantomjs.org/">phantomJS</a> /
+            <a href="http://siliconforks.com/jscoverage/">JSCoverage</a>
+        </p>
+        <p>
+            <a href="http://socket.io/">socket.io</a> /
+            <a href="https://github.com/ikkou/io-2012-slides">google io slider</a> /
+            <a href="https://github.com/ogom/python-mcider">mcider</a>
+        </p>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>模块化开发</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <li><a href="http://seajs.org">seaJS</a>
+                <pre class="prettyprint" data-lang="javascript">
+define(function(require, exports, module) {
+    var $ = require('$');
+    var helper = require('./helper');
+
+    $(function() {
+        helper.sexWith('who');
+    });
+});</pre>
+            </li>
+            <li><a href="http://requirejs.org/">requireJS</a></li>
+            <li>ES6</li>
+        </ul>
+        <p>规范</p>
+        <ul>
+            <li><a href="https://github.com/seajs/seajs/issues/242">CMD</a></li>
+            <li><a href="https://github.com/amdjs/amdjs-api/wiki/AMD">AMD</a></li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>调试利器</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <li>firebug/chrome控制台</li>
+            <li>source Map 解码</li>
+            <li>seaJS map 映射</li>
+        </ul>
+        <img src="images/firebug.png" class="reflect" alt="" title="" style="float: right;margin-right: 10px;"/>
+    </article>
+</slide>
+
+<slide class="fill nobackground black" style="background-image: url(images/grunt.jpg)">
+    <hgroup>
+        <h2>构建神器 grunt</h2>
+        <h3>神奇的野猪</h3>
+    </hgroup>
+    <article>
+        <ul>
+            <li>CMD文件转化 transport</li>
+            <li>CMD文件合并 concat</li>
+            <li>压缩 uglify</li>
+            <li>监听 watch</li>
+            <li>自动化单元测试 QUnit</li>
+            <li>自动化代码检查 JSHint</li>
+            <li>...</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>自由与约束</h2>
+    </hgroup>
+    <article>
+        <img src="images/j.jpg" class="reflect" alt="" title="" style="float: right;margin-right: 10px;"/>
+        <ul>
+            <li>代码风格约束 JSHint</li>
+            <li>单元测试 QUnit</li>
+            <li>代码覆盖率 JSCoverage</li>
+        </ul>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>流程</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <li>环境搭建</li>
+            <li>项目构建</li>
+            <li>代码编写</li>
+            <li>单元测试</li>
+            <li>调试</li>
+            <li>部署</li>
+            <li>后期维护</li>
+        </ul>
+        <p>本地代码： <a href="http://local.com/demo/fd_solution/example/fight/index.html">本地</a></p>
+        <p>线上代码： <a href="http://remote.com/example/fight/index.html">线上</a></p>
+    </article>
+</slide>
+
+<slide class="fill nobackground white" style="background-image: url(images/nodejs.png)">
+    <hgroup>
+        <h2 style="color: #ffffff">环境搭建</h2>
+    </hgroup>
+    <article>
+        <p>nodeJS / npm / Grunt </p>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>项目构建</h2>
+    </hgroup>
+    <article>
+        <img src="images/ml.png" class="reflect" alt="" title=""/>
+    </article>
+</slide>
+
+<slide class="fill nobackground white" style="background-image: url(images/coding.jpg)">
+    <hgroup>
+        <h2>代码编写</h2>
+    </hgroup>
+    <article>
+        <p>外部库的引用</p>
+        <p>内部库</p>
+        <p>业务逻辑</p>
+        <p>单元测试</p>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>调试</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <li>线上bug修复</li>
+            <li>线上数据使用</li>
+        </ul>
+        <img src="images/debug.png" class="reflect" alt="" title=""/>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>部署与后期维护</h2>
+    </hgroup>
+    <article>
+        <img src="images/smile.jpg" class="reflect" alt="" title=""/>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>甜点</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <li>tpl</li>
+        </ul>
+        <img src="images/tpl.png" class="reflect" alt="" title=""/>
+    </article>
+</slide>
+
+<slide>
+    <hgroup>
+        <h2>例子资源</h2>
+    </hgroup>
+    <article>
+        <ul>
+            <li><a href="https://github.com/caolvchong/ppt">https://github.com/caolvchong/ppt</a></li>
+        </ul>
+    </article>
+</slide>
+
+<slide class="segue dark quote nobackground">
+    <hgroup>
+        <h2>移动框架</h2>
+    </hgroup>
+    <aside class="gdbar right bottom"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+        <q>
+            <a href="https://github.com/spemoon/mobi">mobi</a>
+        </q>
+        <div class="author">
+            <p>希望在贡献者中看到你的名字</p>
+        </div>
+    </article>
+</slide>
+
+<slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+        <h2>&lt;Thank You!&gt;</h2>
+        <p>联系方式</p>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+        <p>email: caolvchong@gmail.com</p>
+    </p>
+</slide>
+
+<slide class="backdrop"></slide>
+
+</slides>
+</body>
+</html>

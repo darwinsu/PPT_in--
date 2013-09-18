@@ -1,0 +1,17 @@
+{{for data=log item=item key=index}}
+<div class="attack-item">
+    {{item.from}}使用
+    <em class="fight-type">{{item.type === 'normal' ? '普通攻击' : '必杀技能'}}</em>，
+    造成 <span class="fight-hurt">{{item.hurt}}</span>点伤害，
+    {{item.to}}剩余血量{{item.left}}
+</div>
+{{endfor}}
+
+<div class="fight-result">
+    {{if(result.result)}}
+        {{result.attack.name}}
+    {{else}}
+        {{result.defence.name}}
+    {{endif}}
+    取得了胜利
+</div>
